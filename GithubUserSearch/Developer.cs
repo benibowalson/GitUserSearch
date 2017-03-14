@@ -18,7 +18,7 @@ namespace GithubUserSearch
         public string profileURL { get; set; }
         public string photoPath { get; set; }
 
-        public Developer();
+        public Developer() { }
 
         public Developer(string uName, string pURL, string pPath)
         {

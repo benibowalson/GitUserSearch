@@ -15,7 +15,15 @@ namespace GithubUserSearch
             // Set our view from the "main" layout resource
             SetContentView (Resource.Layout.Main);
 
-            HttpWebRequest myRequest = WebRequest.Create("https://api.github.com/search/users?q=language:java+location:lagos") as HttpWebRequest;
+            getDevelopers();
+        }
+
+        public void getDevelopers()
+        {
+            HttpWebRequest myRequest = (HttpWebRequest)WebRequest.Create("https://api.github.com/search/users?q=language:java+location:lagos") as HttpWebRequest;
+
+            myRequest.Credentials = CredentialCache.DefaultCredentials;
+            //myRequest.Credentials = new NetworkCredential("benibowalson", ".12gitHUB34.");
             myRequest.Method = "GET";
             myRequest.Proxy = null;
 
