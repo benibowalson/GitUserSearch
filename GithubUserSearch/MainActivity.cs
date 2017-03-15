@@ -2,10 +2,11 @@
 using Android.Widget;
 using Android.OS;
 using System.Net;
+using Android.Content;
 
 namespace GithubUserSearch
 {
-    [Activity(Label = "Search Github User", MainLauncher = true, Icon = "@drawable/bennySearch")]
+    [Activity(Label = "Search Github User", MainLauncher = true, Icon = "@drawable/search")]
     public class MainActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)
@@ -14,23 +15,21 @@ namespace GithubUserSearch
 
             // Set our view from the "main" layout resource
             SetContentView (Resource.Layout.Main);
+            Button SearchButton = FindViewById<Button>(Resource.Id.btnSearch);
 
-            getDevelopers();
-        }
-
-        public void getDevelopers()
-        {
-            HttpWebRequest myRequest = (HttpWebRequest)WebRequest.Create("https://api.github.com/search/users?q=language:java+location:lagos") as HttpWebRequest;
-
-            myRequest.Credentials = CredentialCache.DefaultCredentials;
-            //myRequest.Credentials = new NetworkCredential("benibowalson", ".12gitHUB34.");
-            myRequest.Method = "GET";
-            myRequest.Proxy = null;
-
-            using (HttpWebResponse myResponse = myRequest.GetResponse() as HttpWebResponse)
+            SearchButton.Click += (sender, e) =>
             {
+                string uName = FindViewById<EditText>(Resource.Id.txtUsername).Text;
+                string uPass = FindViewById<EditText>(Resource.Id.txtPassword).Text;
 
-            }
+
+
+                var devResultsActivity = new Intent(this, typeof(DevsActivity));
+                devResultsActivity.PutExtra("dUsername", uName);
+                devResultsActivity.PutExtra("dPass", uPass);
+                StartActivity(devResultsActivity);
+
+            };
         }
     }
 }
