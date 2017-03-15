@@ -43,7 +43,8 @@ namespace GithubUserSearch
 
             using (HttpWebResponse myResponse = myRequest.GetResponse() as HttpWebResponse)
             {
-
+                dynamic myJson = Newtonsoft.Json.JsonConvert.SerializeObject(myResponse);
+                
             }
         }
     }

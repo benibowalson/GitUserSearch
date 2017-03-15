@@ -74,7 +74,7 @@
     <AndroidResource Include="Resources\layout\DevsListView.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\Devs.axml">
+    <AndroidResource Include="Resources\layout\DevCustomView.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

@@ -22,8 +22,6 @@ namespace GithubUserSearch
                 string uName = FindViewById<EditText>(Resource.Id.txtUsername).Text;
                 string uPass = FindViewById<EditText>(Resource.Id.txtPassword).Text;
 
-
-
                 var devResultsActivity = new Intent(this, typeof(DevsActivity));
                 devResultsActivity.PutExtra("dUsername", uName);
                 devResultsActivity.PutExtra("dPass", uPass);

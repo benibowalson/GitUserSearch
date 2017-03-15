@@ -22,6 +22,7 @@ namespace GithubUserSearch
         {
             this.myContext = aContext;
             this.devsList = lstDvlprs;
+            
         }
 
         //overrides for base class methods
@@ -52,7 +53,7 @@ namespace GithubUserSearch
             View aView = convertView;
 
             if (convertView == null)
-                aView = myContext.LayoutInflater.Inflate(Resource.Layout.Devs, parent, false);
+                aView = myContext.LayoutInflater.Inflate(Resource.Layout.DevCustomView, parent, false);
 
             ImageView devImage = aView.FindViewById(Resource.Id.imgDev) as ImageView;
             TextView devUsername = aView.FindViewById(Resource.Id.txtDev) as TextView;
